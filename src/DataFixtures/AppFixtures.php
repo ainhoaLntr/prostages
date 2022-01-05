@@ -70,14 +70,13 @@ class AppFixtures extends Fixture
             $stage->setTitre($faker->realText($maxNbChar = 100, $indexSize = 2));
             $stage->setMission($faker->paragraph(4, false));
             $stage->setEmail($faker->email);
-            $stage->setEntreprise();
             
             $indiceFormation = $faker->numberBetween($min = 0, $max = 7);
             $indiceEntreprise = $faker->numberBetween($min = 0, $max = 11);
             $stage->setEntreprise($tabEntreprise[$indiceEntreprise]);
             $stage->addFormation($tableauFormations[$indiceFormation]);
             
-            $manager->persist($entreprises);
+            $manager->persist($stage);
         }
 
         // Envoi les données en BD
