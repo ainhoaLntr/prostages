@@ -64,10 +64,12 @@ class AppFixtures extends Fixture
 
         // Création des stages
         $nbStages = 20;
+        $tabMetier = array('Développeur', 'Pen-testeurs', 'Assistant chef de projet', 'Stagiaire', 'Programmeur', 'Graphiste', );
+        $tabLangage = array('PHP', 'Java', 'Xamarin', 'JavaScript', 'C++', 'C', 'réseaux', 'base de données');
 
         for ($i=0; $i < $nbStages; $i++) { 
             $stage = new Stage();
-            $stage->setTitre($faker->realText($maxNbChar = 100, $indexSize = 2));
+            $stage->setTitre($tabMetier[rand(0, count($tabMetier)-1)]." en ".$tabLangage[rand(0, count($tabLangage)-1)]);
             $stage->setMission($faker->paragraph(4, false));
             $stage->setEmail($faker->email);
             

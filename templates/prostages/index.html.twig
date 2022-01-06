@@ -7,12 +7,16 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Bienvenue sur la page d'accueil de Prostages</h1>
+    <br>
+    <h3 style="text-align:center;">Liste des stages proposés</h3>
+    <br>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Temp/symfony/prostages/src/Controller/ProstagesController.php'|file_link(0) }}">src/Controller/ProstagesController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Temp/symfony/prostages/templates/prostages/index.html.twig'|file_link(0) }}">templates/prostages/index.html.twig</a></code></li>
-    </ul>
+    {% for stageCourant in stages %}
+
+    <a class="link" href="{{path('prostages_stage', {id:stageCourant.id})}}"><h5>{{ stageCourant.titre }}</h5></a>
+    <h6>{{ stageCourant.Entreprise.nom }}</h6>
+    <br>
+
+    {% endfor %}
 </div>
 {% endblock %}
