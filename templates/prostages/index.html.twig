@@ -12,11 +12,16 @@
     <br>
 
     {% for stageCourant in stages %}
-
-    <a class="link" href="{{path('prostages_stage', {id:stageCourant.id})}}"><h5>{{ stageCourant.titre }}</h5></a>
-    <h6>{{ stageCourant.Entreprise.nom }}</h6>
-    <br>
-
+        <a class="link" href="{{path('prostages_stage', {id:stageCourant.id})}}"><h5>{{ stageCourant.titre }}</h5></a>
+        <h6>{{ stageCourant.Entreprise.nom }}</h6>
+        {% for formationCourante in stageCourant.formations%}
+            <h6>{{ formationCourante.nomLong}}</h6>
+            {% if loop.last == false %}
+                ,
+            {% endif %}
+        {% endfor %}
+        <br>
     {% endfor %}
+
 </div>
 {% endblock %}

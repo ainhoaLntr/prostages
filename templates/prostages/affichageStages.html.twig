@@ -7,12 +7,25 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{ id }}</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Temp/symfony/prostages/src/Controller/ProstagesController.php'|file_link(0) }}">src/Controller/ProstagesController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Temp/symfony/prostages/templates/prostages/index.html.twig'|file_link(0) }}">templates/prostages/index.html.twig</a></code></li>
-    </ul>
+    <h1 style = "text-align: center;"><strong>{{ stage.titre }}</strong></h1>
+    <br><br>
+    <h6><strong>Pour quelles formations ?</strong></h6>
+    {% for formationCourante in stage.formations%}
+    <p>{{ formationCourante.nomLong}}</p>
+    {% if loop.last == false %}
+    ,
+    {% endif %}
+    {% endfor %}
+    <br>
+    <h6><strong>L'entreprise</strong></h6>
+    <p>{{ stage.Entreprise.nom}}</p>
+    <p>{{ stage.Entreprise.activite}}</p>
+    <br>
+    <h6><strong>Les missions</strong></h6>
+    <p>{{ stage.mission }}</p>
+    <br>
+    <h6><strong>Comment prendre contact ?</strong></h6>
+    <p>{{ stage.Entreprise.siteweb}}</p>
+    <p>{{ stage.email}}</p>
 </div>
 {% endblock %}
