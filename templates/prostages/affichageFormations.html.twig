@@ -7,11 +7,11 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Cette page affichera la liste des formations de l'IUT</h1>
-
+    <h1 style="text-align:center;">Les formations proposées par l'IUT</h1>
+    <br>
     {% for formationCourante in formations %}
-    <a class="link" href="{{path('prostages_stagesParFormation', {'id': formationCourante.id})}}">{{ formationCourante.nomLong}}</a>
-    <br><br>
+        <a class="link" href="{{path('prostages_stagesParFormation', {'id': formationCourante.id})}}">{{ formationCourante.nomLong}}</a>
+        <br><br>
     {% endfor %}
 </div>
 {% endblock %}

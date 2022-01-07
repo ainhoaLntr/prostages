@@ -7,10 +7,12 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Cette page affichera la liste des entreprises proposant un stage</h1>
-
+    <h1 style="text-align:center;">Nos entreprises partenaires</h1>
+    <br>
     {% for entrepriseCourante in entreprises %}
-    <a class="link" href="{{path('prostages_stagesParEntreprise', {'id': entrepriseCourante.id})}}">{{ entrepriseCourante.nom}}</a>
+        <a class="link" href="{{path('prostages_stagesParEntreprise', {'id': entrepriseCourante.id})}}">{{ entrepriseCourante.nom }}</a>
+        <p>{{ entrepriseCourante.adresse }}</p>
+        <br>
     {% endfor %}
 </div>
 {% endblock %}

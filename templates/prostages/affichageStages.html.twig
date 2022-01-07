@@ -13,10 +13,10 @@
     <br><br>
     <h6><strong>Pour quelles formations ?</strong></h6>
     {% for formationCourante in stage.formations%}
-    <p>{{ formationCourante.nomLong}}</p>
-    {% if loop.last == false %}
-    ,
-    {% endif %}
+        <p>{{ formationCourante.nomLong}}</p>
+        {% if loop.last == false %}
+            ,
+        {% endif %}
     {% endfor %}
     <br>
     <h6><strong>L'entreprise</strong></h6>
