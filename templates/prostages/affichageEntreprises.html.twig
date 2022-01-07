@@ -10,7 +10,7 @@
     <h1>Cette page affichera la liste des entreprises proposant un stage</h1>
 
     {% for entrepriseCourante in entreprises %}
-    <a class="link" href="{{path('prostages_accueil')}}">{{ entrepriseCourante.nom}}</a>
+    <a class="link" href="{{path('prostages_stagesParEntreprise', {'id': entrepriseCourante.id})}}">{{ entrepriseCourante.nom}}</a>
     {% endfor %}
 </div>
 {% endblock %}

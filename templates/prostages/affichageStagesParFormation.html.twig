@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .link { color: #545454; text-decoration: none; }
+    .link:hover { color: black; text-decoration: none; }
+</style>
+
+<div class="example-wrapper">
+    <h1 style = "text-align: center;"><strong>Stages relatifs à l'entreprise {{ formation.nomLong }}</strong></h1>
+    <br><br>
+    {% for stageCourant in formation.stages %}
+        <a class="link" href="{{path('prostages_stage', {id:stageCourant.id})}}"><h5>{{ stageCourant.titre }}</h5></a>
+        <h6>{{ stageCourant.Entreprise.nom }}</h6>
+        {% for formationCourante in stageCourant.formations%}
+            <h6>{{ formationCourante.nomLong}}</h6>
+            {% if loop.last == false %}
+                ,
+            {% endif %}
+        {% endfor %}
+        <br>
+    {% endfor %}
+    <br>
+    
+</div>
+{% endblock %}

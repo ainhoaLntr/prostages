@@ -10,7 +10,8 @@
     <h1>Cette page affichera la liste des formations de l'IUT</h1>
 
     {% for formationCourante in formations %}
-    <p>{{ formationCourante.nomLong}}</p>
+    <a class="link" href="{{path('prostages_stagesParFormation', {'id': formationCourante.id})}}">{{ formationCourante.nomLong}}</a>
+    <br><br>
     {% endfor %}
 </div>
 {% endblock %}
