@@ -31,9 +31,29 @@ class ProstagesController extends AbstractController
      */
     public function afficherEntreprises(): Response
     {
-        return $this->render('prostages/affichageEntreprises.html.twig', [
-            'controller_name' => 'ProstagesController',
-        ]);
+        // Récupérer le respository de l'entité Entreprise
+        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+
+        // Récupérer les entreprises enregistrés en BD
+        $entreprises = $repositoryEntreprise->findAll();
+
+        // Envoyer les entreprises récupérées à la vue chargée de les afficher
+        return $this->render('prostages/affichageEntreprises.html.twig', ['controller_name' => 'ProstagesController', 'entreprises' => $entreprises,]);
+    }
+
+    /**
+     * @Route("/entreprise{id}", name="prostages_stagesParEntreprise")
+     */
+    public function afficherStageParEntreprise($id): Response
+    {
+        // Récupérer le respository de l'entité Entreprise
+        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+
+        // Récupérer les entreprises enregistrés en BD
+        $entreprise = $repositoryEntreprise->find($id);
+
+        // Envoyer les entreprises récupérées à la vue chargée de les afficher
+        return $this->render('prostages/affichageStageParEntreprise.html.twig', ['controller_name' => 'ProstagesController', 'entreprise' => $entreprise,]);
     }
 
     /**
@@ -41,9 +61,14 @@ class ProstagesController extends AbstractController
      */
     public function afficherFormations(): Response
     {
-        return $this->render('prostages/affichageFormations.html.twig', [
-            'controller_name' => 'ProstagesController',
-        ]);
+         // Récupérer le respository de l'entité Formations
+         $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
+
+         // Récupérer les formations enregistrés en BD
+         $formations = $repositoryFormation->findAll();
+ 
+         // Envoyer les formations récupérées à la vue chargée de les afficher
+         return $this->render('prostages/affichageFormations.html.twig', ['controller_name' => 'ProstagesController', 'formations' => $formations,]);
     }
 
     /**

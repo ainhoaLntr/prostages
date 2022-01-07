@@ -9,10 +9,8 @@
 <div class="example-wrapper">
     <h1>Cette page affichera la liste des entreprises proposant un stage</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Temp/symfony/prostages/src/Controller/ProstagesController.php'|file_link(0) }}">src/Controller/ProstagesController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Temp/symfony/prostages/templates/prostages/index.html.twig'|file_link(0) }}">templates/prostages/index.html.twig</a></code></li>
-    </ul>
+    {% for entrepriseCourante in entreprises %}
+    <a class="link" href="{{path('prostages_accueil')}}">{{ entrepriseCourante.nom}}</a>
+    {% endfor %}
 </div>
 {% endblock %}
