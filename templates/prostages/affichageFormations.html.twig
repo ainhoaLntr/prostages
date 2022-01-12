@@ -10,8 +10,12 @@
     <h1 style="text-align:center;">Les formations proposées par l'IUT</h1>
     <br>
     {% for formationCourante in formations %}
-        <a class="link" href="{{path('prostages_stagesParFormation', {'id': formationCourante.id})}}">{{ formationCourante.nomLong}}</a>
-        <br><br>
+        <a class="link" href="{{path('prostages_stagesParFormation', {'id': formationCourante.id})}}">
+            <div class="card">
+                    <h5 class="card-title" style="text-align:center;">{{ formationCourante.nomLong}}</h5>
+            </div>
+        </a>
+        <br>
     {% endfor %}
 </div>
 {% endblock %}

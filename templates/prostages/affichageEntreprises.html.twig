@@ -10,8 +10,16 @@
     <h1 style="text-align:center;">Nos entreprises partenaires</h1>
     <br>
     {% for entrepriseCourante in entreprises %}
-        <a class="link" href="{{path('prostages_stagesParEntreprise', {'id': entrepriseCourante.id})}}">{{ entrepriseCourante.nom }}</a>
-        <p>{{ entrepriseCourante.adresse }}</p>
+        <a class="link" href="{{path('prostages_stagesParEntreprise', {'id': entrepriseCourante.id})}}">
+            <div class="card">
+                <h5 class="card-title" style="text-align:center;">{{ entrepriseCourante.nom }}</h5>
+                <p class="card-text" style="text-align:center;">
+                    <small class="text-muted">
+                        {{ entrepriseCourante.adresse }}
+                    </small>
+                </p>
+            </div>
+        </a>
         <br>
     {% endfor %}
 </div>

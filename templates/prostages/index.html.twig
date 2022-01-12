@@ -9,18 +9,29 @@
 <div class="example-wrapper">
     <h1 style="text-align:center;">Liste des stages proposés</h1>
     <br>
-
-    {% for stageCourant in stages %}
-        <a class="link" href="{{path('prostages_stage', {id:stageCourant.id})}}"><h5>{{ stageCourant.titre }}</h5></a>
-        <h6>{{ stageCourant.Entreprise.nom }}</h6>
-        {% for formationCourante in stageCourant.formations%}
-            <h6>{{ formationCourante.nomLong}}</h6>
-            {% if loop.last == false %}
-                ,
-            {% endif %}
+    <div class="card-desk">
+        {% for stageCourant in stages %}
+            <a class="link" href="{{path('prostages_stage', {id:stageCourant.id})}}">
+                <div class="card">
+                    <h5 class="card-title" style="text-align:center;">{{ stageCourant.titre }}</h5>
+                    <h6 class="card-text" style="text-align:center;">
+                        <small class="text-muted">
+                            {{ stageCourant.Entreprise.nom }}
+                        </small>
+                    </h6>
+                    {% for formationCourante in stageCourant.formations%}
+                        <h6 class="card-text" style="text-align:center;">
+                            <small class="text-muted">
+                            {{ formationCourante.nomLong}}</h6>
+                            {% if loop.last == false %}
+                                ,
+                            {% endif %}
+                            </small>
+                    {% endfor %}
+                </div>
+            </a>
+            <br>
         {% endfor %}
-        <br>
-    {% endfor %}
-
+    </div>
 </div>
 {% endblock %}
